@@ -1,0 +1,1 @@
+cl ./src/main.cpp /EHsc /Fo:./build/main.obj /link /DEBUG /out:./build/main.exe

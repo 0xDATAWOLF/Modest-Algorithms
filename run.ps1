@@ -1,0 +1,1 @@
+cmd /c '.\build\main.exe < data1000.txt'
