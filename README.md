@@ -10,7 +10,7 @@ This project contains:
 	- **Time Complexity:** O(log<sub>2</sub>n) search time.
 	- Used for finding an element within a sorted array.
 
-* **election Sort**
+* **Selection Sort**
 	- **Time Complexity:** O(n<sup>2</sup>) sorting time.
 	- Trivial implementation, great for determining if the array is already sorted.
 	Many comparisons, low swaps.
