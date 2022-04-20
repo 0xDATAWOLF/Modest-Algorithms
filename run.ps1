@@ -1,1 +1,1 @@
-cmd /c '.\build\main.exe < data1000.txt'
+cmd /c '.\build\main.exe < data16.txt'
