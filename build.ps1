@@ -1,1 +1,1 @@
-cl ./src/main.cpp /EHsc /Fo:./build/main.obj /link /DEBUG /out:./build/main.exe
+cl ./src/main.cpp /Zi /EHsc /Fd:./build/vc140.pdb /Fo:./build/main.obj /link /DEBUG /out:./build/main.exe
