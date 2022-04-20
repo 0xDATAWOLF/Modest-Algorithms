@@ -21,7 +21,7 @@ This project contains:
 	Many comparisons, many swaps.
 
 * **Insertion Sort**
-	-**Time Complexity:**  O(n<sup>2</sup>) sorting time.
+	- **Time Complexity:**  O(n<sup>2</sup>) sorting time.
 	- Trivial implementation, great for small data sets, performs better the closer
 	the array is to being sorted.
 
