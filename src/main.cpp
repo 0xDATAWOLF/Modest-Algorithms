@@ -5,6 +5,7 @@
 #include <algorithm>
 
 #include "dataset.h"
+#include "algorithms.h"
 
 using namespace std;
 
@@ -23,15 +24,6 @@ static void alg_binary_insertion_sort(vector<int>&);
 int main(int argc, char* argv[])
 {
 
-#if 0
-
-	vector<int> unsorted;
-	getUnsorted(unsorted);
-
-	alg_binary_insertion_sort(unsorted);
-	showVector(unsorted, 8);
-#endif
-
 	// Create a known set.
 	int rand_set[16] = {
 		14, 8 ,3, 12, 15, 2, 9, 7, 1, 10, 16, 11, 4, 5, 13, 6
@@ -39,20 +31,12 @@ int main(int argc, char* argv[])
 
 	// Create a dataset.
 	v_array integerDataset;
-
-	/**
-	string line;
-	while(getline(cin, line))
-	{
-		integerDataset.push(atoi(line.c_str()));
-	}
-	*/
-
 	for (int i = 0; i < 16; ++i)
 	{
 		integerDataset.push(rand_set[i]);
 	}
 
+	// Print the dataset contents.
 	cout << right;
 	int nrow = 0;
 	for (int n = 0; n < integerDataset.count(); ++n)
