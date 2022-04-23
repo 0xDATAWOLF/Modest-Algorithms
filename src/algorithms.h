@@ -1,12 +1,13 @@
 #ifndef ALGORITHMS_H
 #define ALGORITHMS_H
+#include "utils.h"
 #include "dataset.h"
-
-#define array_length(array) (sizeof(array)/sizeof(array[0]))
 
 int
 binary_search(int* array, int count, int value)
 {
+
+	stopwatch bm = {__FUNCTION__};
 
 	int high = count-1;
 	int low = 0;
@@ -37,17 +38,11 @@ binary_search(int* array, int count, int value)
 
 }
 
-inline void
-swap_int(int* array, int a, int b)
-{
-	int c = array[a];
-	array[a] = array[b];
-	array[b] = c;
-}
-
 void
 selection_sort(int* array, int count)
 {
+
+	stopwatch bm = {__FUNCTION__};
 
 	for (int i = 0; i < count; ++i)
 	{
@@ -66,6 +61,8 @@ void
 insertion_sort(int* array, int count)
 {
 
+	stopwatch bm = {__FUNCTION__};
+
 	for (int i = 1; i < count; ++i)
 	{
 		int j = i;
@@ -82,6 +79,8 @@ insertion_sort(int* array, int count)
 void
 bubble_sort(int* array, int count)
 {
+
+	stopwatch bm = {__FUNCTION__};
 
 	bool swapped = false;
 	do
