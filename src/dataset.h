@@ -19,8 +19,14 @@ class v_array
 
 		void push(int);
 
+
 		int operator[](int);
 
+		/** 
+		 * Doesn't guarantee that the pointer will be valid when push is used when
+		 * capturing onto the stack.
+		 */
+		int* ptr() { return (int*)_array_ptr; }
 		int count() { return _array_count; };
 		int max_size() { return _array_size; };
 
@@ -31,9 +37,6 @@ class v_array
 
 };
 
-/**
- * Default constructor behavior of the dataset.
- */
 v_array::v_array()
 {
 
@@ -44,9 +47,6 @@ v_array::v_array()
 
 }
 
-/**
- * Deconstruction will free the memory of the array.
- */
 v_array::~v_array()
 {
 	free(_array_ptr);
@@ -59,7 +59,8 @@ v_array::operator[](int index)
 }
 
 /**
- * Push an element on to the top of the array stack. Will resize the array
+ * Push an element on to the top of the array stack. Will resize the array by 2n
+ * should it reach capacity.
  */
 void
 v_array::push(int element)

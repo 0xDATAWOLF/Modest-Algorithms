@@ -2,6 +2,8 @@
 #define ALGORITHMS_H
 #include "dataset.h"
 
+#define array_length(array) (sizeof(array)/sizeof(array[0]))
+
 int
 binary_search(int* array, int count, int value)
 {
@@ -35,9 +37,27 @@ binary_search(int* array, int count, int value)
 
 }
 
+inline void
+swap_int(int* array, int a, int b)
+{
+	int c = array[a];
+	array[a] = array[b];
+	array[b] = c;
+}
+
 void
 selection_sort(int* array, int count)
 {
+
+	for (int i = 0; i < count; ++i)
+	{
+		int mindex = i;
+		for (int n = i+1; n < count; ++n)
+		{
+			if (array[n] < array[mindex]) mindex = n;
+		}
+		swap_int(array, i, mindex);
+	}
 
 	return;
 }
@@ -46,12 +66,39 @@ void
 insertion_sort(int* array, int count)
 {
 
+	for (int i = 1; i < count; ++i)
+	{
+		int j = i;
+		while (j > 0 && array[j-1] > array[j])
+		{
+			swap_int(array, j-1, j);
+			--j;
+		} 
+	}
+
 	return;
 }
 
 void
 bubble_sort(int* array, int count)
 {
+
+	bool swapped = false;
+	do
+	{
+		swapped = false;
+		for (int i = 1; i < count; ++i)
+		{
+			if (array[i-1] > array[i])
+			{
+				swap_int(array, i-1, i);
+				swapped = true;
+			}
+			
+		}
+		--count;
+	}
+	while (swapped == true);
 
 	return;
 }

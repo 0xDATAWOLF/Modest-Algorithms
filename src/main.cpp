@@ -29,12 +29,18 @@ int main(int argc, char* argv[])
 		14, 8 ,3, 12, 15, 2, 9, 7, 1, 10, 16, 11, 4, 5, 13, 6
 	};
 
+	int sorted_set[16] = {
+		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+	};
+
 	// Create a dataset.
 	v_array integerDataset;
 	for (int i = 0; i < 16; ++i)
 	{
 		integerDataset.push(rand_set[i]);
 	}
+
+	bubble_sort(integerDataset.ptr(), integerDataset.count());
 
 	// Print the dataset contents.
 	cout << right;
