@@ -79,12 +79,20 @@ class stopwatch
 		stopwatch(std::string);
 		~stopwatch();
 
+		inline static double lasttime_ms() { return (double)_last/1000.0; }
+		inline static double lasttime_us() { return (double)_last; }
+
+	protected:
+		static long long _last;
+
 	private:
 		std::string tag;
 		std::chrono::time_point<std::chrono::steady_clock> start;
 		std::chrono::time_point<std::chrono::steady_clock> end;
 
 };
+
+long long stopwatch::_last = 0;
 
 stopwatch::stopwatch()
 {
@@ -103,6 +111,7 @@ stopwatch::~stopwatch()
 
 	end = std::chrono::steady_clock::now();
 	long long int duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+	_last = duration; // Store in static for future retrieval.
 	std::cout << "[STOPWATCH] ";
 	std::cout << tag << " took " << duration << "us (" << (double)duration/1000.0 << "ms).\n";
 

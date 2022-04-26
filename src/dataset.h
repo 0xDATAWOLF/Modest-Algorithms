@@ -70,12 +70,17 @@ v_array::operator[](int index)
 }
 
 /**
- * Copies the contents of source v_array into this one.
+ * Copies the contents of source v_array into this one. This will clear the contents
+ * of the array before copying the contents over.
  */
 void
 v_array::copyfrom(v_array& source)
 {
 
+	// Clear.
+	this->clear();
+
+	// Copy over.
 	for (int i = 0; i < source.count(); ++i)
 		push(source[i]);
 
