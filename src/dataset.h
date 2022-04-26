@@ -36,6 +36,8 @@ class v_array
 		void copyfrom(v_array&);
 		void clear();
 
+		void show(int, int, int);
+
 		int count() { return _array_count; };
 		int max_size() { return _array_size; };
 
@@ -91,6 +93,43 @@ v_array::clear()
 	_array_ptr = nullptr;
 	_array_count = 0;
 	_array_size = 0;
+
+}
+
+/**
+ * Shows the array.
+ */
+void
+v_array::show(int spacing, int rows, int cols)
+{
+
+	std::cout << std::right;
+
+	int rcount = 0;
+	int ccount = cols;
+	for (int vindex = 0; vindex < _array_count; ++vindex)
+	{
+
+		if (rcount >= rows)
+		{
+			std::cout << std::endl;
+			rcount = 0;
+			ccount--;
+		}
+
+		if (ccount == 1)
+		{
+			vindex = (_array_count - (rows-1));
+			std::cout << std::setw(spacing) << "...";
+			ccount--;
+		}
+
+		std::cout << std::setw(spacing) << ((int*)_array_ptr)[vindex];
+		++rcount;
+
+	}
+
+	std::cout << std::endl;
 
 }
 

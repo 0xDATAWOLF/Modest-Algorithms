@@ -5,7 +5,7 @@
 #include "dataset.h"
 #include "algorithms.h"
 
-#define SAMPLE_COUNT 100000
+#define SAMPLE_COUNT 10000
 
 int main(int argc, char* argv[])
 {
@@ -21,16 +21,19 @@ int main(int argc, char* argv[])
 
 	// Benchmark sorting algorithms.
 	selection_sort(sortingset.ptr(), sortingset.count());
+	sortingset.show(8, 8, 4);
 	sortingset.clear();
 	sortingset.copyfrom(sampleset);
 
 	// Benchmark sorting algorithms.
 	insertion_sort(sortingset.ptr(), sortingset.count());
+	sortingset.show(8, 8, 4);
 	sortingset.clear();
 	sortingset.copyfrom(sampleset);
 
 	// Benchmark sorting algorithms.
 	bubble_sort(sortingset.ptr(), sortingset.count());
+	sortingset.show(8, 8, 4);
 	sortingset.clear();
 	sortingset.copyfrom(sampleset);
 

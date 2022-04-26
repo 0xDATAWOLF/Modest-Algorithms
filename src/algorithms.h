@@ -82,22 +82,22 @@ bubble_sort(int* array, int count)
 
 	stopwatch bm = {__FUNCTION__};
 
-	bool swapped = false;
+	int swapped = 0;
 	do
 	{
-		swapped = false;
+		swapped = 0;
 		for (int i = 1; i < count; ++i)
 		{
 			if (array[i-1] > array[i])
 			{
 				swap_int(array, i-1, i);
-				swapped = true;
+				swapped = i;
 			}
 			
 		}
-		--count;
+		count = swapped;
 	}
-	while (swapped == true);
+	while (count > 1);
 
 	return;
 }
